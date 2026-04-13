@@ -25,6 +25,8 @@ async def on_ready():
     if not APIcheck.is_running():
         APIcheck.start()
 
+
+# Hello World command for testing
 @tasks.loop(minutes = 15)
 async def APIcheck():
     channel = (bot.get_channel(CHANNEL_ID))
@@ -51,5 +53,7 @@ async def APIcheck():
 @APIcheck.before_loop
 async def before_check():
     await bot.wait_until_ready()
+
+
 
 bot.run(DISCORD_TOKEN)
