@@ -19,6 +19,9 @@ def get_json(url):
     with urllib.request.urlopen(url) as response:
         return json.loads(response.read().decode())
 
+def False_function():
+    return False
+
 @bot.event
 async def on_ready():
     print(f"Successfully logged in as {bot.user}")
