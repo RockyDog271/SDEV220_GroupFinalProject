@@ -1,0 +1,22 @@
+{
+  "PetDetails": [
+    {
+      "UserID": "HUS9823",
+      "PasswordHASH": "78i65g4ci87thi45837ky3hbcg5g",
+      "Username": "ThatBoy2",
+	  "Email": "",
+	  "UserFirstName": "",
+	  "UserLastName": "",
+      "role": "STAFF"
+    },
+    {
+      "UserID": "ASA1221",
+      "PasswordHASH": "srfge43f563452ccfgwrt3crt433",
+      "Username": "NurseSally",
+	  "Email": "",
+	  "UserFirstName": "",
+	  "UserLastName": "",
+      "role": "STAFF"
+    }
+  ]
+}

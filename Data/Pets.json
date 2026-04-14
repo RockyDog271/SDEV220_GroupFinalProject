@@ -1,0 +1,44 @@
+{
+  "PetDetails": [
+    {
+      "PetID": "EXC2132",
+      "PetAge": "7",
+      "PetBirthdate": "2026-05-01",
+      "PetName": "James",
+      "PetNotes": "Very friendly",
+      "PetSpecies": "K9",
+      "PetOwnerID": "REW3256",
+      "VaccineHistory": [
+        {
+          "VaccineName": "Bordetella",
+          "VaccineNotes": "Recommended before boarding",
+          "DateGiven": "2026-03-05",
+          "NextDue": "2027-03-05"
+        }
+      ]
+    },
+    {
+      "PetID": "SUH8932",
+      "PetAge": "7",
+      "PetBirthdate": "2026-05-01",
+      "PetName": "Mikes",
+      "PetNotes": "He is all bark no bite, trust",
+      "PetSpecies": "Beagle",
+      "PetOwnerID": "ERW4324",
+      "VaccineHistory": [
+        {
+          "VaccineName": "Rabies",
+          "VaccineNotes": "No reaction after shot",
+          "DateGiven": "2026-01-15",
+          "NextDue": "2027-01-15"
+        },
+        {
+          "VaccineName": "Distemper",
+          "VaccineNotes": "Booster completed",
+          "DateGiven": "2026-02-10",
+          "NextDue": "2027-02-10"
+        }
+      ]
+    }
+  ]
+}
