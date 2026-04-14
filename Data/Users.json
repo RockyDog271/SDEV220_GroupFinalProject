@@ -1,0 +1,31 @@
+{
+  "Users": [
+    {
+      "UserID": "TYA7281",
+      "PasswordHASH": "f070e239c05d30c4aa024dc634bf5e69c18bba11bdbbbf451cc8fc4f3c561cb7148a3cb4589655696ef5bafc44ebd9e253236d44ad1354a50d00d50a06f6000d",
+      "Username": "ThatBoy2",
+	  "Email": "",
+	  "UserFirstName": "John",
+	  "UserLastName": "Johnathan",
+      "role": "USER"
+    },
+    {
+      "UserID": "SGS7833",
+      "PasswordHASH": "2bb203c13a7edd80f213d2ab4b57a0aaaad6618bb09638f41de2f7a5956a6eb77d1ccf7df83bc03be96080283d253d4737199429042afce6d31ff35f14e65022",
+      "Username": "NurseSally",
+	  "Email": "",
+	  "UserFirstName": "Jessica",
+	  "UserLastName": "",
+      "role": "STAFF"
+    },
+    {
+      "UserID": "TSY8921",
+      "PasswordHASH": "dcd1df4a1cb499f762e0f9e2dee89f0039a8afe98219192a147782e81a5632a61fbaf2275565c191109e1e304554f732b0ab494d37d1989e2b02eb8d99d51ec7",
+      "Username": "WhatEvenIsGoogle",
+	  "Email": "",
+	  "UserFirstName": "Mark",
+	  "UserLastName": "",
+      "role": "USER"
+    }
+  ]
+}

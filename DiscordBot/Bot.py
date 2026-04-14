@@ -19,9 +19,6 @@ def get_json(url):
     with urllib.request.urlopen(url) as response:
         return json.loads(response.read().decode())
 
-def False_function():
-    return False
-
 @bot.event
 async def on_ready():
     print(f"Successfully logged in as {bot.user}")
@@ -56,7 +53,5 @@ async def APIcheck():
 @APIcheck.before_loop
 async def before_check():
     await bot.wait_until_ready()
-
-
 
 bot.run(DISCORD_TOKEN)

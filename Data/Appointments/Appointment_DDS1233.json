@@ -1,0 +1,16 @@
+{
+  "AppointmentID": "FSF6723",
+  "PetID": "FSG8732",
+  "UserID": "TYA7281",
+  "StaffUserID": "SGS7833",
+  "Message": " Annual check-up and vaccinations",
+  "DueDate": "2026-05-01",
+  "Date": "2026-05-03",
+  "Time": "14:30",
+  "serviceType": [
+    {
+      "name": "Wellness Exam",
+      "description": "Routine health check including vaccinations"
+    }
+  ]
+}
