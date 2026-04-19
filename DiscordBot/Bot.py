@@ -15,12 +15,28 @@ FRONTEND_URL = os.getenv("FRONTEND_URL")
 
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='>', intents = intents)
-statA = 0
-statB = 0
+StatA = 0
+StatB = 0
 
 def get_json(url):
     with urllib.request.urlopen(url) as response:
-        return json.loads(response.read().decode())
+        return json.loads(response.read().decode("utf-8"))
+
+def post_json(url, data=None):
+    if data is None:
+        data = {}
+
+    body = json.dumps(data).encode("utf-8")
+
+    request = urllib.request.Request(
+        url,
+        data=body,
+        headers={"Content-Type": "application/json"},
+        method="POST"
+    )
+
+    with urllib.request.urlopen(request) as response:
+        return json.loads(response.read().decode("utf-8"))
 
 @bot.event
 async def on_ready():
@@ -32,36 +48,46 @@ async def on_ready():
 @tasks.loop(minutes = 15)
 async def APIcheck():
     channel = (bot.get_channel(CHANNEL_ID))
-    global statA
-    global statB
+    global StatA
+    global StatB
 
     if channel is None:
         channel = await bot.fetch_channel(CHANNEL_ID)
     
     try:
-        Backend = get_json(BACKEND_URL)
-        # First Backend check, status returned ONLINE, if not then marks as OFFLINE
-        if Backend.get("status") == ("ONLINE"):
+        try:
+            Backend = get_json(BACKEND_URL)
+        except:
+            Backend = None
+
+        if not Backend:
+            await channel.send(":yellow_circle: Backend Server **OFFLINE**")
+            StatA += 1
+        elif Backend.get("status") == "ONLINE":
             await channel.send(":green_circle: Backend Server **ONLINE**")
             StatA = 0
         else:
             await channel.send(":yellow_circle: Backend Server **OFFLINE**")
             StatA += 1
-        await asyncio.sleep(0.5) # here to make it feel more "real"
-        
-        # If OFFLINE for 3+ times, send additional notif
+
+        await asyncio.sleep(0.5)
+
         if StatA >= 3:
             await channel.send(":red_circle: Backend Server **OFFLINE** for extended period of time")
-        await asyncio.sleep(0.5) # here to make it feel more "real"
 
-        #if Backend.get("status") == (""):
-        #    await channel.send(":orange: Backend Server sas successfully updated recently")
-        if Backend.get("info") == ("DEV"):
-            await channel.send(":blue_circle: Backend Server is **ONLINE** but is in DEVELOPMENT mode")
-        await asyncio.sleep(0.5) # here to make it feel more "real"
-        if Backend.get("info") == ("MAINT"):
-            await channel.send(":purple_circle: Backend Server is **ONLINE** but is in MAINTENANCE mode")
-        await asyncio.sleep(0.5) # here to make it feel more "real"
+        await asyncio.sleep(0.5)
+
+        if Backend:
+            if Backend.get("info") == "DEV":
+                await channel.send(":blue_circle: Backend Server is **ONLINE** but is in DEVELOPMENT mode")
+            await asyncio.sleep(0.5)
+
+            if Backend.get("info") == "MAINT":
+                await channel.send(":purple_circle: Backend Server is **ONLINE** but is in MAINTENANCE mode")
+            await asyncio.sleep(0.5)
+
+
+
 
         # Delay 5s before running through Frontend code (makes it feel more "real")
         await asyncio.sleep(5)
