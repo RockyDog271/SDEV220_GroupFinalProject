@@ -1,5 +1,5 @@
 {
-  "AppointmentID": "FSF6723",
+  "AppointmentID": "DDS1233",
   "PetID": "FSG8732",
   "UserID": "TYA7281",
   "StaffUserID": "SGS7833",
@@ -7,10 +7,10 @@
   "DueDate": "2026-05-01",
   "Date": "2026-05-03",
   "Time": "14:30",
-  "serviceType": [
+  "ServiceType": [
     {
-      "name": "Wellness Exam",
-      "description": "Routine health check including vaccinations"
+      "ServiceName": "Wellness Exam",
+      "Description": "Routine health check including vaccinations"
     }
   ]
 }
