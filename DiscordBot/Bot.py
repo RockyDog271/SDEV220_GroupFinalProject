@@ -59,7 +59,6 @@ async def APIcheck():
             Backend = get_json(BACKEND_URL)
         except:
             Backend = None
-
         if not Backend:
             await channel.send(":yellow_circle: Backend Server **OFFLINE**")
             StatA += 1
@@ -69,14 +68,10 @@ async def APIcheck():
         else:
             await channel.send(":yellow_circle: Backend Server **OFFLINE**")
             StatA += 1
-
         await asyncio.sleep(0.5)
-
         if StatA >= 3:
             await channel.send(":red_circle: Backend Server **OFFLINE** for extended period of time")
-
         await asyncio.sleep(0.5)
-
         if Backend:
             if Backend.get("info") == "DEV":
                 await channel.send(":blue_circle: Backend Server is **ONLINE** but is in DEVELOPMENT mode")
@@ -85,8 +80,6 @@ async def APIcheck():
             if Backend.get("info") == "MAINT":
                 await channel.send(":purple_circle: Backend Server is **ONLINE** but is in MAINTENANCE mode")
             await asyncio.sleep(0.5)
-
-
 
 
         # Delay 5s before running through Frontend code (makes it feel more "real")
